@@ -15,6 +15,11 @@ public class RangeTest {
 
     //.equals() section
 
+    @Test(expected = InvalidParameterException.class)
+    public void stringarg() {
+        exampleRange.equals("Hello");
+    }
+
     @Test
     public void ShouldEqualtest() {
     	exampleRange = new Range(1, 1);

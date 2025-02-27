@@ -5,15 +5,17 @@ import static org.junit.Assert.*; import org.jfree.data.Range; import org.junit.
 public class RangeTest {
     private Range exampleRange;
     private Range CompRange;
-    @BeforeClass public static void setUpBeforeClass() throws Exception {
-    }
 
+    @BeforeClass public static void setUpBeforeClass() throws Exception {
+
+    }
 
     @Before
-    public void setUp() throws Exception { exampleRange = new Range(-1, 1);
+    public void setUp() throws Exception { 
+        exampleRange = new Range(-1, 1);
     }
 
-    //.equals() section
+    //equals() section
 
     @Test
     public void ShouldEqualtest() {
@@ -38,6 +40,7 @@ public class RangeTest {
     	assertFalse("Comparing 1,2 to 2,2 should not equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void HigherBoundSmall() {
     	exampleRange = new Range(4, 8);
@@ -45,6 +48,7 @@ public class RangeTest {
     	assertFalse("Comparing 4, 8 to 4, 7 should not equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void HigherBoundBig() {
     	exampleRange = new Range(1, 1);
@@ -52,6 +56,7 @@ public class RangeTest {
     	assertFalse("Comparing 1,1 to 1,2 should not equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void BothNonMatchingHigh() {
     	exampleRange = new Range(1,2);
@@ -59,6 +64,7 @@ public class RangeTest {
     	assertFalse("1,2 should not equal 3,4",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void BothNonMatchingLow() {
     	exampleRange = new Range(4,5);
@@ -66,6 +72,7 @@ public class RangeTest {
     	assertFalse("4,5 should not equal 1,2",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void ComparingNegativeNumbers() {
     	exampleRange = new Range(-2,-1);
@@ -73,6 +80,7 @@ public class RangeTest {
     	assertTrue("-2,-1 and -2, -1 should equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void ComparingNegativewithPositive() {
     	exampleRange = new Range(-2,3);
@@ -80,6 +88,7 @@ public class RangeTest {
     	assertTrue("-2, 3 and -2, 3 should equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void ComparingMismatchSigns() {
     	exampleRange = new Range(2,3);
@@ -87,6 +96,7 @@ public class RangeTest {
     	assertFalse("2, 3 and -2, 3 should not equal",
     			exampleRange.equals(CompRange));
     }
+
     @Test
     public void ComparingToNull() {
     	assertFalse("Comparing -1,1 to Null should not equal",
@@ -101,31 +111,59 @@ public class RangeTest {
     	assertEquals("0, 0 should have a range of 0",
     			0, exampleRange.getCentralValue(), .000000001d);
     }
+
     @Test
     public void all1s() {
     	exampleRange = new Range(1, 1);
     	assertEquals("1, 1 should have a range of 0",
     			0, exampleRange.getCentralValue(), .000000001d);
     }
+
     @Test
     public void PositiveLength1() {
     	exampleRange = new Range(1, 2);
     	assertEquals("1, 2 should have a range of 1",
     			1, exampleRange.getCentralValue(), .000000001d);
     }
+
     @Test
     public void NegativeLength1() {
     	exampleRange = new Range(-2, -1);
     	assertEquals("-2, -1 should have a range of 1",
     			1, exampleRange.getCentralValue(), .000000001d);
     }
+    
     @Test
     public void LengthAcross0() {
     	exampleRange = new Range(-1, 1);
     	assertEquals("-1, 1 should have a range of 2",
     			2, exampleRange.getCentralValue(), .000000001d);
     }
-    
+
+    //constrian() section
+    /**
+     * Tests the constrain() method when the input value is within the range.
+     */
+    @Test
+    public void testConstrainWithinRange() {
+        assertEquals("A value within the range should return itself", 0.5, exampleRange.constrain(0.5), 0.000000001d);
+    }
+
+    /**
+     * Tests the constrain() method when the input value is below the range.
+     */
+    @Test
+    public void testConstrainBelowLowerBound() {
+        assertEquals("A value below the lower bound should return the lower bound", -1, exampleRange.constrain(-2), 0.000000001d);
+    }
+
+    /**
+     * Tests the constrain() method when the input value is above the range.
+     */
+    @Test
+    public void testConstrainAboveUpperBound() {
+        assertEquals("A value above the upper bound should return the upper bound", 1, exampleRange.constrain(2), 0.000000001d);
+    }
 
     @After
     public void tearDown() throws Exception {

@@ -40,46 +40,46 @@ This strategy ensured functional coverage of all scenarios, validated error hand
 
 ## **Test Cases for Range Class**
 
-| **Method**       | **Partition**              | **Test Method Name**          | **Example Inputs**                 |
-|-----------------|--------------------------|------------------------------|------------------------------------|
-| **equals()**    | X ≥ 0                     | `ShouldEqualTest`            | `(1,1) == (1,1)`                  |
-|                 |                            | `LowerBoundSmall`            | `(1,1) != (0,1)`                  |
-|                 |                            | `LowerBoundBig`              | `(1,2) != (2,2)`                  |
-|                 |                            | `HigherBoundSmall`           | `(4,8) != (4,7)`                  |
-|                 |                            | `HigherBoundBig`             | `(1,1) != (1,2)`                  |
-|                 |                            | `BothNonMatchingHigh`        | `(1,2) != (3,4)`                  |
-|                 |                            | `BothNonMatchingLow`         | `(4,5) != (1,2)`                  |
-|                 | X < 0                      | `ComparingNegativeNumbers`   | `(-2,-1) == (-2,-1)`              |
-|                 | Negative < X < Positive   | `ComparingNegativeWithPositive` | `(-2,3) == (-2,3)`              |
-|                 |                            | `ComparingMismatchSigns`     | `(2,3) != (-2,3)`                  |
-|                 | Null Test                  | `ComparingToNull`            | `(1,2) != null`                    |
-| **getLength()** | X = 0                      | `all0s`                      | `(0,0)`                            |
-|                 | X > 0                      | `all1s`                      | `(1,1)`                            |
-|                 |                            | `PositiveLength1`            | `(1,2)`                            |
-|                 | X < 0                      | `NegativeLength1`            | `(-2,-1)`                          |
-|                 | -1 ≤ X ≤ 1                 | `LengthAcross0`              | `(-1,1)`                           |
-| **constrain()** | Value within range        | `testConstrainWithinRange`   | `(1,5)`, `3`                       |
-|                 | Value below lower bound   | `testConstrainBelowLowerBound` | `(1,5)`, `0`                     |
-|                 | Value above upper bound   | `testConstrainAboveUpperBound` | `(1,5)`, `6`                     |
-|**Shift()**      | Positive Delta Value      | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `1` |
-|                 |                           | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `1` , `true`|
-|                 |                           | `testPositiveDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `2`|
-|                 |                           | `testPositiveDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `2`,`true`|
-|                 |Negative Delta Value       | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `-1`|
-|                 |                           | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `-1`,`true`|
-|                 |                           | `testNegativeDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `-2`|
-|                 |                           | `testNegativeDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `-2`,`true`|
-|                 |Zero Delta Value           | `testZeroDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `0`|
-|                 |                           | `testZeroDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `0`,`true`|
-|                 |Null Range                 | `testExceptionWhenNullRangePassedForShift` | `null`, `1`|
-|**expand()**     |Margin <= 1                | `testZeroLowerMarginForExpand` | `(-1,1)`, `0`,`0.5` |
-|                 |                           | `testZeroUpperMarginForExpand` | `(-1,1)`, `0.5`,`0` |
-|                 |                           | `testZeroLowerMarginAndUpperMarginForExpand` | `(-1,1)`, `0`,`0` |
-|                 |                           | `testLowerAndUpperBoundWithPercentage` | `(-1,1)`, `0.5`,`0.5` |
-|                 |Margin > 1                 | `testLowerMarginGreaterThanOne` | `(-1,1)`, `2`,`0.5` |
-|                 |                           | `testUpperMarginGreaterThanOne` | `(-1,1)`, `0.5`,`2` |
-|                 |                           | `testLowerAndUpperMarginGreaterThanOne` | `(-1,1)`, `2`,`2` |
-|                 |Null Range                 | `testExceptionWhenNullRangePassedForExpand` | `null`, `1`,`1` |
+| **Method**       | **Partition**              | **Test Method Name**          | **Example Inputs**                 |**ExpectedOutputs**|
+|-----------------|--------------------------|------------------------------|------------------------------------|-----------------------|
+| **equals()**    | X ≥ 0                     | `ShouldEqualTest`            | `(1,1) == (1,1)`                  ||
+|                 |                            | `LowerBoundSmall`            | `(1,1) != (0,1)`                  ||
+|                 |                            | `LowerBoundBig`              | `(1,2) != (2,2)`                  ||
+|                 |                            | `HigherBoundSmall`           | `(4,8) != (4,7)`                  ||
+|                 |                            | `HigherBoundBig`             | `(1,1) != (1,2)`                  ||
+|                 |                            | `BothNonMatchingHigh`        | `(1,2) != (3,4)`                  ||
+|                 |                            | `BothNonMatchingLow`         | `(4,5) != (1,2)`                  ||
+|                 | X < 0                      | `ComparingNegativeNumbers`   | `(-2,-1) == (-2,-1)`              ||
+|                 | Negative < X < Positive   | `ComparingNegativeWithPositive` | `(-2,3) == (-2,3)`              ||
+|                 |                            | `ComparingMismatchSigns`     | `(2,3) != (-2,3)`                  ||
+|                 | Null Test                  | `ComparingToNull`            | `(1,2) != null`                    ||
+| **getLength()** | X = 0                      | `all0s`                      | `(0,0)`                            ||
+|                 | X > 0                      | `all1s`                      | `(1,1)`                            ||
+|                 |                            | `PositiveLength1`            | `(1,2)`                            ||
+|                 | X < 0                      | `NegativeLength1`            | `(-2,-1)`                          ||
+|                 | -1 ≤ X ≤ 1                 | `LengthAcross0`              | `(-1,1)`                           ||
+| **constrain()** | Value within range        | `testConstrainWithinRange`   | `(1,5)`, `3`                       ||
+|                 | Value below lower bound   | `testConstrainBelowLowerBound` | `(1,5)`, `0`                     ||
+|                 | Value above upper bound   | `testConstrainAboveUpperBound` | `(1,5)`, `6`                     ||
+|**Shift()**      | Positive Delta Value      | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `1` |`(0,2)`|
+|                 |                           | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `1` , `true`|`(0,2)`|
+|                 |                           | `testPositiveDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `2`|`(0,3)`|
+|                 |                           | `testPositiveDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `2`,`true`|`(1,3)`|
+|                 |Negative Delta Value       | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `-1`|`(-2,0)`|
+|                 |                           | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `-1`,`true`|`(-2,0)`|
+|                 |                           | `testNegativeDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `-2`|`(-3,0)`|
+|                 |                           | `testNegativeDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `-2`,`true`|`(-3,-1)`|
+|                 |Zero Delta Value           | `testZeroDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `0`|`(-1,1)`|
+|                 |                           | `testZeroDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `0`,`true`|`(-1,1)`|
+|                 |Null Range                 | `testExceptionWhenNullRangePassedForShift` | `null`, `1`|`InvalidParameterException`|
+|**expand()**     |Margin <= 1                | `testZeroLowerMarginForExpand` | `(-1,1)`, `0`,`0.5` |`(-1,2)`|
+|                 |                           | `testZeroUpperMarginForExpand` | `(-1,1)`, `0.5`,`0` |`(-2,1)`|
+|                 |                           | `testZeroLowerMarginAndUpperMarginForExpand` | `(-1,1)`, `0`,`0` |`(-1,1)`|
+|                 |                           | `testLowerAndUpperBoundWithPercentage` | `(-1,1)`, `0.5`,`0.5` |`(-2,2)`|
+|                 |Margin > 1                 | `testLowerMarginGreaterThanOne` | `(-1,1)`, `2`,`0.5` |`(-5,2)`|
+|                 |                           | `testUpperMarginGreaterThanOne` | `(-1,1)`, `0.5`,`2` |`(-2,5)`|
+|                 |                           | `testLowerAndUpperMarginGreaterThanOne` | `(-1,1)`, `2`,`2` |`(-5,5)`|
+|                 |Null Range                 | `testExceptionWhenNullRangePassedForExpand` | `null`, `1`,`1` |`InvalidParameterException`|
 ---
 
 ## **Test Cases for DataUtilities Class**

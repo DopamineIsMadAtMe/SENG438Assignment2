@@ -114,7 +114,9 @@ This strategy ensured functional coverage of all scenarios, validated error hand
 
 **Benefits and Drawbacks of Mocking:**
 
+Mocking is definitely a powerful tool to isolate the system under test. It helped in creating tests that were solely focused on testing the behaviour of the method. It was very useful in simulating edge cases, failures, and unexpected behaviors that might be difficult to reproduce with real dependencies. This improved test coverage and robustness. It also helped ensure that the tests produced the same results every time which improved the reliance of tests.
 
+One drawback we identified about mocking was that while they replace real dependencies, at the same time they do not test how the actual system components interact. This means potential issues in real-world scenarios can go unnoticed in the testing stage. It creates a false sense of security if a test passes with the mockup but can fail in real environment. Initially, we also found mockups to be complex and a bit difficult to understand.
 
 # 4. How the team work/effort was divided and managed
 

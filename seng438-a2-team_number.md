@@ -61,6 +61,25 @@ This strategy ensured functional coverage of all scenarios, validated error hand
 | **constrain()** | Value within range        | `testConstrainWithinRange`   | `(1,5)`, `3`                       |
 |                 | Value below lower bound   | `testConstrainBelowLowerBound` | `(1,5)`, `0`                     |
 |                 | Value above upper bound   | `testConstrainAboveUpperBound` | `(1,5)`, `6`                     |
+|**Shift()**      | Positive Delta Value      | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `1` |
+|                 |                           | `testPositiveDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `1` , `true`|
+|                 |                           | `testPositiveDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `2`|
+|                 |                           | `testPositiveDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `2`,`true`|
+|                 |Negative Delta Value       | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingFalseForShift` | `(-1,1)`, `-1`|
+|                 |                           | `testNegativeDeltaValueWithNoZeroCrossingAndZeroCrossingTrueForShift` | `(-1,1)`, `-1`,`true`|
+|                 |                           | `testNegativeDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `-2`|
+|                 |                           | `testNegativeDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `-2`,`true`|
+|                 |Zero Delta Value           | `testZeroDeltaValueWithZeroCrossingFalseForShift` | `(-1,1)`, `0`|
+|                 |                           | `testZeroDeltaValueWithZeroCrossingTrueForShift` | `(-1,1)`, `0`,`true`|
+|                 |Null Range                 | `testExceptionWhenNullRangePassedForShift` | `null`, `1`|
+|**expand()**     |Margin <= 1                | `testZeroLowerMarginForExpand` | `(-1,1)`, `0`,`0.5` |
+|                 |                           | `testZeroUpperMarginForExpand` | `(-1,1)`, `0.5`,`0` |
+|                 |                           | `testZeroLowerMarginAndUpperMarginForExpand` | `(-1,1)`, `0`,`0` |
+|                 |                           | `testLowerAndUpperBoundWithPercentage` | `(-1,1)`, `0.5`,`0.5` |
+|                 |Margin > 1                 | `testLowerMarginGreaterThanOne` | `(-1,1)`, `2`,`0.5` |
+|                 |                           | `testUpperMarginGreaterThanOne` | `(-1,1)`, `0.5`,`2` |
+|                 |                           | `testLowerAndUpperMarginGreaterThanOne` | `(-1,1)`, `2`,`2` |
+|                 |Null Range                 | `testExceptionWhenNullRangePassedForExpand` | `null`, `1`,`1` |
 ---
 
 ## **Test Cases for Range Class**

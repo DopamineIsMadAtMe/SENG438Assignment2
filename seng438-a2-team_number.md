@@ -82,7 +82,7 @@ This strategy ensured functional coverage of all scenarios, validated error hand
 |                 |Null Range                 | `testExceptionWhenNullRangePassedForExpand` | `null`, `1`,`1` |
 ---
 
-## **Test Cases for Range Class**
+## **Test Cases for DataUtilities Class**
 
 
 | **Partition** | **Method** | **Test Name** | **Example Inputs** | **Expected Output** |

@@ -147,7 +147,8 @@ Sahib: Focused on createNumberArray2D(), getCumulativePercentages() in DataUtili
 
 Wade: Developed test cases for equals() and getLength() in the Range class.
 
-Rohan: Covered the shift() and expand() methods in the Range class.
+Rohan: Developed test cases for shift() and expand() methods in the Range class.
+
 After implementation, all team members reviewed each other's test cases to ensure full coverage and correctness. Additionally, those who did not work directly on mocking took the time to understand the concept and successfully gave a demo.  
 # 5. Difficulties encountered, challenges overcome, and lessons learned
 

@@ -109,35 +109,35 @@ public class RangeTest {
     public void all0s() {
     	exampleRange = new Range(0, 0);
     	assertEquals("0, 0 should have a range of 0",
-    			0, exampleRange.getCentralValue(), .000000001d);
+    			0, exampleRange.getLength(), .000000001d);
     }
 
     @Test
     public void all1s() {
     	exampleRange = new Range(1, 1);
     	assertEquals("1, 1 should have a range of 0",
-    			0, exampleRange.getCentralValue(), .000000001d);
+    			0, exampleRange.getLength(), .000000001d);
     }
 
     @Test
     public void PositiveLength1() {
     	exampleRange = new Range(1, 2);
     	assertEquals("1, 2 should have a range of 1",
-    			1, exampleRange.getCentralValue(), .000000001d);
+    			1, exampleRange.getLength(), .000000001d);
     }
 
     @Test
     public void NegativeLength1() {
     	exampleRange = new Range(-2, -1);
     	assertEquals("-2, -1 should have a range of 1",
-    			1, exampleRange.getCentralValue(), .000000001d);
+    			1, exampleRange.getLength(), .000000001d);
     }
     
     @Test
     public void LengthAcross0() {
     	exampleRange = new Range(-1, 1);
     	assertEquals("-1, 1 should have a range of 2",
-    			2, exampleRange.getCentralValue(), .000000001d);
+    			2, exampleRange.getLength(), .000000001d);
     }
 
     //constrian() section

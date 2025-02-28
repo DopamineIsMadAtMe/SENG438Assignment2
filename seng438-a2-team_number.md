@@ -28,83 +28,32 @@ This is then repeated for negative valules (X < 0) Then finally a range across 0
    
 # 3 Test cases developed
 
-Text…
+## **Test Cases**
 
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
-## getLentgh()
-## X = 0
-### all0s() 
-* exampleRange = new Range(0, 0)
+| **Method**       | **Partition**              | **Test Method Name**          | **Example Inputs**                 |
+|-----------------|--------------------------|------------------------------|------------------------------------|
+| **equals()**    | X ≥ 0                     | `ShouldEqualTest`            | `(1,1) == (1,1)`                  |
+|                 |                            | `LowerBoundSmall`            | `(1,1) != (0,1)`                  |
+|                 |                            | `LowerBoundBig`              | `(1,2) != (2,2)`                  |
+|                 |                            | `HigherBoundSmall`           | `(4,8) != (4,7)`                  |
+|                 |                            | `HigherBoundBig`             | `(1,1) != (1,2)`                  |
+|                 |                            | `BothNonMatchingHigh`        | `(1,2) != (3,4)`                  |
+|                 |                            | `BothNonMatchingLow`         | `(4,5) != (1,2)`                  |
+|                 | X < 0                      | `ComparingNegativeNumbers`   | `(-2,-1) == (-2,-1)`              |
+|                 | Negative < X < Positive   | `ComparingNegativeWithPositive` | `(-2,3) == (-2,3)`              |
+|                 |                            | `ComparingMismatchSigns`     | `(2,3) != (-2,3)`                  |
+|                 | Null Test                  | `ComparingToNull`            | `(1,2) != null`                    |
+| **getLength()** | X = 0                      | `all0s`                      | `(0,0)`                            |
+|                 | X > 0                      | `all1s`                      | `(1,1)`                            |
+|                 |                            | `PositiveLength1`            | `(1,2)`                            |
+|                 | X < 0                      | `NegativeLength1`            | `(-2,-1)`                          |
+|                 | -1 ≤ X ≤ 1                 | `LengthAcross0`              | `(-1,1)`                           |
 
-## X > 0
-### all1s() 
-* exampleRange = new Range(1, 1)
-### PositiveLength1() 
-* exampleRange = new Range(1, 2)
-## X < 0
-### NegativeLength1() 
-* exampleRange = new Range(-2, -1)
-## -1 <= X <= 1
-### LengthAcross0() 
-* exampleRange = new Range(-1, 1)
-
-
-## equals()
-## X >= 0
-### ShouldEqualtest()
-* exampleRange = new Range(1, 1)
-* CompRange = new Range(1, 1)
-
-### LowerBoundSmall() 
-* exampleRange = new Range(1, 1)
-* CompRange = new Range(0, 1)
-
-### LowerBoundBig() 
-* CompRange = new Range(2, 2)
-* exampleRange = new Range(1, 2)
-
-### HigherBoundSmall() 
-* exampleRange = new Range(4, 8);
-* CompRange = new Range(4, 7);
-
-### HigherBoundBig() 
-* exampleRange = new Range(1, 1)
-* CompRange = new Range(1, 2)
-
-### BothNonMatchingHigh() 
-* exampleRange = new Range(1,2)
-* CompRange = new Range(3,4)
-    
-### BothNonMatchingLow() 
-* exampleRange = new Range(4,5)
-* CompRange = new Range(1,2)
-
-## X < 0
-### ComparingNegativeNumbers() 
-* exampleRange = new Range(-2,-1)
-* CompRange = new Range(-2, -1)
-
-
-## Negative < X < Positive
-### ComparingNegativewithPositive() 
-* exampleRange = new Range(-2,3)
-* CompRange = new Range(-2,3)
-    	
-### ComparingMismatchSigns() 
-* exampleRange = new Range(2,3)
-* CompRange = new Range(-2,3)
-
-## Null Test
-### ComparingToNull() 
-* exampleRange.equals(null)
-
+---
 ## constrain()
 testConstrainWithinRange()
 testConstrainBelowLowerBound()
 testConstrainAboveUpperBound()
-
 ## createNumberArray2D()
 testCreateNumberArray2D_ValidInput()
 testCreateNumberArray2D_EmptyArray()

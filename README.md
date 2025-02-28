@@ -1,4 +1,4 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=18114294&assignment_repo_type=AssignmentRepo)
-seng438-a2
+seng438-a2-16
+- The Test files DataUtilitiesTest.java and RangeTest.java can be found in directory SENG438Assignment2/JFreeChart/src/org/jfree/data/test
+- The Lab Report can be found in file seng438-a2-16.md
 
-Read [the assignment guideline](seng438-a2.md) 

@@ -4,6 +4,7 @@ import static org.junit.Assert.*; import org.jfree.data.Range; import org.junit.
 
 public class RangeTest {
     private Range exampleRange;
+    private Range expectedRange;
     private Range CompRange;
 
     @BeforeClass public static void setUpBeforeClass() throws Exception {
